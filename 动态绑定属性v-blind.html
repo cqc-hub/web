@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script src="js/vue.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+		<div id="app">
+			<img v-bind:src="url" style="width: 600px; height: 350px;">
+			<a v-bind:href="ahref">baidu yixia</a>
+			<!-- //语法糖写法 -->
+			<img :src="url_1" style="width: 350px; height: 600px;">
+		</div>
+		<script type="text/javascript">
+			var app=new Vue({
+				el:'#app',
+				data:{
+					url:'img/a1.jpg',
+					url_1:'img/a2.jpg',
+					ahref:'http://www.baidu.com'
+				}
+			})
+		</script>
+	</body>
+</html>

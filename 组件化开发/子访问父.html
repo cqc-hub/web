@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script src="../js/vue.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+		<div id="app">
+			<cp></cp>
+		</div>
+		<template id="cp">
+			<div>
+				<h2>子组件~~~</h2>
+				<ccp></ccp>
+			</div>
+		</template>
+		<template id="ccp">
+			<div>
+				<h2 @click="myFc">zi子组件~~~</h2>	
+			</div>
+		</template>
+		<script type="text/javascript">
+			const ccp={
+				template:'#ccp',
+				methods:{
+					myFc(){
+						/* console.log(this.$parent.$parent);
+						console.log(this.$parent.name);//调用父组件信息 */
+						this.$parent.$parent.showMsg();//调用祖父方法
+						this.$root.showMsg();//直接访问根组件
+					}
+				}
+			}
+			const cp={
+				template:'#cp',
+				components:{
+					ccp
+				},
+				data(){
+					return{
+						name:'我是子组件'
+					}
+				}
+			}
+			const app=new Vue({
+				el:'#app',
+				methods:{
+					showMsg(){
+						console.log('祖父组件内方法')
+					}
+				},
+				components:{
+					cp
+				}
+			})
+		</script>
+	</body>
+</html>

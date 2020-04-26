@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script src="../js/vue.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+		
+		<div id="app" >
+			<cpn :c-tips='tips' :cmsg='msg'></cpn>
+		</div>
+		<template id='cpn'>
+			<div >
+				{{cmsg}}
+				<h2 v-for="tip in cTips">{{tip}}</h2>
+				<hr >
+				{{ppp}}
+			</div>
+		</template>
+		<script type="text/javascript">
+			obj(a,b){
+				this.a=a;
+				this.b=b
+			}
+			// 父传子：  props
+			const cpn={
+				template:'#cpn',
+				//props:['ctips','cmsg'],
+				
+				props:{
+					cTips:Array,
+					cmsg:String,
+					ppp:{
+						type:String,
+						default:'h1h1h1',
+						required:false,
+						
+					},
+					author:obj
+				}
+				
+			}
+		
+			const app=new Vue({
+				el:'#app',
+				data:{
+					msg:'hhhh',
+					tips:['蜘蛛','毒蛇','蟾蜍','黑蝎'],
+				},
+				components:{
+					cpn
+				}
+				
+			})
+		</script>
+	</body>
+</html>

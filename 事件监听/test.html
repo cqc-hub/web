@@ -1,0 +1,46 @@
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script src="../js/vue.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	
+<!-- 	 <div id="app">
+		
+		<button type="button" @click="btnCick(123,$event)">{{msg}}</button>
+	</div> -->
+	<div id='app'>
+			<div id="hh" @click='divclick'>
+				dsadsa
+				<!-- <button type="button" @click.stop="btclick">dfdsf</button> -->
+			</div>
+			<button type="button" @click.prevent="btclick">sads</button>
+			
+			<input type="" name="" id="" value=""  @keyup.keyCode.13="btclick"/>
+	</div>
+
+	
+	
+	<script type="text/javascript">
+
+const app=new Vue({
+				el:'#app',
+				data:{
+					b:123
+				},
+				methods:{
+					btclick(){
+						console.log('btnclick');
+					},
+					divclick(){
+						console.log('divclick');
+					}
+				}
+			})
+
+	</script>
+	<body>
+	</body>
+</html>

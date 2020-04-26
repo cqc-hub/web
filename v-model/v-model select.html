@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script src="../js/vue.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+		<div id="app">
+			<select name="aa"v-model="fu">
+				<option value ="哦苹果" >哦苹果</option>
+				<option value ="香蕉">香蕉</option>
+				<option value ="牛皮">牛皮</option>
+				<option value ="芒果">芒果</option>
+			</select>
+			<select name="aa"v-model="fus" multiple="">
+				<option value ="哦苹果" >哦苹果</option>
+				<option value ="香蕉">香蕉</option>
+				<option value ="牛皮">牛皮</option>
+				<option value ="芒果">芒果</option>
+			</select>
+			<h2>{{fu}}</h2>
+			<h2>{{fus}}</h2>
+		</div>
+		<script type="text/javascript">
+			let app=new Vue({
+				el:'#app',
+				data:{
+					fu:'牛皮',
+					fus:[]
+					
+				}
+				
+			})
+		</script>
+	</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<script src="../js/vue.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+		<div id="main">
+			<h2>{{counter}}</h2>
+			<!-- <button type="button" v-on:click="counter++">+</button>
+			<button type="button" v-on:click="counter--">-</button> -->
+			<button type="button" v-on:click="increment">+</button>
+			<button type="button" @click="decrement">-</button>
+			
+		</div>
+		
+	
+<script type="text/javascript">
+			let vm=new Vue({
+				el:'#main',
+				data:{
+					counter:0
+				},
+				methods:{
+					increment(){
+						return this.counter++;
+					},
+					decrement(){
+						return this.counter--;
+					}
+				}
+			});
+			
+				
+		
+			
+		</script>
+	</body>
+</html>

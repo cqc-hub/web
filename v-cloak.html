@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script src="js/vue.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<style type="text/css">
+		[v-cloak]{
+			display: none;
+		}
+	</style>
+	<body>
+		<div id="main" v-cloak>{{str}}</div>
+		<!-- v-cloak  在·vue未完成解析前添加v-cloak属性，
+						vue解析完成后移除v-cloak
+		 -->
+		<script type="text/javascript">
+			setTimeout(function(){
+				let app=new Vue({
+					el:'#main',
+					data:{
+						str:'hello',
+					}
+				});
+			},2000);
+		</script>
+	</body>
+</html>

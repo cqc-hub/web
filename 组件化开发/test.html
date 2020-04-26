@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script src="../js/vue.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+		<div id="main">
+			<cp></cp>
+			<cp></cp>
+			<cp></cp>
+		</div>
+		<template id="cp">
+			<div>
+				<h2>当前计数:{{count}}</h2>
+					
+				
+				<button type="button"@click="decr">-</button>
+				<button type="button" @click="incr">+</button>
+			</div>
+		</template>
+		<script type="text/javascript">
+			const counter={
+				count:0
+			}
+			Vue.component('cp',{
+				template:'#cp',
+				data(){
+					/* return{  //各个组件之间独立拥有数据不会相互影响
+						count:0
+					} */
+					return counter //counter是自己定义的一个新对象 会导致组件之间的数据会共享
+					
+				},
+				methods:{
+					incr(){
+						this.count++
+					},
+					decr(){
+						this.count--
+					}
+				}
+			})
+			const app=new Vue({
+				el:'#main',
+				
+			})
+		</script>
+	</body>
+</html>

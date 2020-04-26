@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script src="../js/vue.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+		
+		<div id="app">
+			<cp2></cp2>
+		</div>
+		<script type="text/javascript">
+			// 全局组件注册语法糖
+			Vue.component('cp1',{
+				//这个 ` 是tab键上面那个键的`  es6写法 可以支持内容换行
+				template:`
+				<div>
+					<h2>我是标题</h2>
+					<p>我是内容</p>
+					<p>我是内容aasaa</p>
+					<p>我是内容bsdasdbb</p>
+				</div>	
+				`
+				
+			})
+			
+			let app=new Vue({
+				el:'#app',
+				data:{
+					msg:'hhhh'
+				},
+				components:{
+					'cp2':{
+				//这个 ` 是tab键上面那个键的`  es6写法 可以支持内容换行
+				template:`
+				<div>
+					<h2>我是标题</h2>
+					<p>我是内容</p>
+					<p>我是内容aasaa</p>
+					<p>我是内容bsdasdbb</p>
+				</div>	
+				`
+				
+			}
+				}
+				
+				
+			})
+		</script>
+	</body>
+</html>

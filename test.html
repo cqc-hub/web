@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style >
+			.active{
+				color: red;
+			}
+		</style>
+	</head>
+	<body>
+		<script src="js/vue.js"></script>
+		<div id="app">
+			<ul>
+				<li  v-for ="(m,index) in movies" :class="{active:a==index}" v-on:click="dj(index)">{{index}}--{{m}}</li>
+			</ul>
+		</div>
+		
+						
+		<script >
+			const app=new Vue({
+				el:"#app",
+				data:{
+					movies:['qwe','asd','zxc'],
+					a:0
+				},
+				methods:{
+				dj:function(index){
+					this.a=index;
+				}}
+			})
+		</script>
+	</body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>标签中加key='不同值'解决</title>
+		<script src="../js/vue.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+		<div id="app">
+			<!-- vue 内部复用问题
+			 vue进行dom渲染时，出于性能考虑会尽可能复用一些已经存在的元素-->
+			<span v-if="isUser">
+				<label for='username'>用户账户</label>
+				<input type="text" name="" id="username" value="" placeholder="用户账户"key='input1'/>
+			</span>
+			<span v-else>
+				<label for='email'>用户邮箱</label>
+				<input type="text" name="" id="email" value="" placeholder="邮箱" key='input2'/>
+			</span>
+			<button type="button" @click="btnC">切换类型</button>
+			
+		</div>
+		<script type="text/javascript">
+			let app=new Vue({
+				el:'#app',
+				data:{
+
+					isUser:true
+				},
+				methods:{
+					btnC(){
+						return this.isUser=!this.isUser;
+					}
+				},
+				computed:{
+					
+				
+				}
+			})
+		</script>
+	</body>
+</html>

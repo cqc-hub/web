@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script src="../js/vue.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+		<!-- 当radio结合v-model时就可以不需要设置name 可以直接实现互斥 -->
+		<div id="app">
+			<h2>{{sex}}</h2>
+			<label for="s">
+				<input type="radio"  id="s" value="男" checked="" v-model='sex' />男
+			</label>
+			<label for="g">
+				<input type="radio"  id="g" value="女" v-model='sex'/>女
+			</label>
+		</div>
+		<script type="text/javascript">
+			let app=new Vue({
+				el:'#app',
+				data:{
+					sex:'男'
+				}
+				
+				
+			})
+		</script>
+	</body>
+</html>

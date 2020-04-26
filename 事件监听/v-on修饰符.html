@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<script src="../js/vue.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+		<div id="main">
+			<!-- 阻止冒泡 -->
+			<div @click="divClick">
+				aaaaa
+				<button type="button" @click.stop="btnClick">dsadsadsa</button>
+			</div>
+			<!-- 阻止submit自动提交-->
+			<form action="baidu" method="">
+				<button type="submit" @click.prevent="submitClick">submit</button>
+			</form>
+			
+			<!-- 监听某个键盘的键帽 -->
+			<input type="text" @keyup.enter="keyClick" />
+			<button type="button" @click.once="btnClick">once</button>
+		</div>
+		<em>dsadsa;'</em>dsadsa
+		<a href="" target=""></a>
+	
+<script type="text/javascript">
+			let vm=new Vue({
+				el:'#main',
+				data:{
+					counter:0
+				},
+				methods:{
+					btnClick(){
+						console.log('btnclick')
+					},
+					divClick(){
+						console.log('divclick')
+					},
+					submitClick(){
+						console.log('submitclick')
+					},
+					keyClick(){
+						console.log('keyclick')
+					}
+				}
+			});
+			
+				
+		
+			
+		</script>
+	</body>
+</html>

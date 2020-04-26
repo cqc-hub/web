@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script src="../js/vue.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+		<div id="app" >
+			<cp :ccount='count' @itemclick='fitemClick'></cp>
+			<cp :ccount='count' @itemclick='fitemClick' ref='aaa'></cp>
+			<button type="button" @click="dk">111</button>
+		</div>
+		<template id="cp">
+			<div >
+				<label @click="cdk">111</label>
+				<h2>{{ccount}}</h2>
+				<button type="button" v-for="item in btn" @click='btnClick(item)'>{{item}}</button>
+			</div>
+		</template>
+		<script type="text/javascript">
+			const cp={
+				template:'#cp',
+				data(){
+					return{
+						btn:['+','-'],
+					}
+					
+				},
+				props:{
+					ccount:{
+						type:Number,
+						required:true
+					}
+				},
+				methods:{
+					btnClick(item){
+						//console.log(item)
+						this.$emit('itemclick',item);
+					},
+					showMsg(){
+						console.log('1111111');
+					},
+					cdk(){
+						
+						console.log(this.$parent.aaa);
+						
+					}
+				}
+			};
+			const app=new Vue({
+				el:'#app',
+				data:{
+					count:0
+				},
+				
+				components:{
+					cp
+				},
+				methods:{
+					fitemClick(item){
+						item=='+'?this.count++:this.count--
+					},
+					dk(){
+						/* console.log(this.$children);
+						this.$children[0].showMsg() */
+						console.log(this.$refs.aaa)
+						
+						this.$refs.aaa.showMsg();
+					}
+				},
+				watch:{
+					count(newvalue,oldvalue){
+						console.log(newvalue,+'~~~'+oldvalue)
+					}
+				}
+			});
+		</script>
+	</body>
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script src="../js/vue.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+		<div id="app">
+			<cpn :cnum1='num1' :cnum2='num2'></cpn>
+			<input type="text"   :value="dnum1" @input="num1Input"/>
+		</div>
+		<template id="cpn">
+			<div>
+				props:{{cnum1}}
+				data:{{num1}}
+			</div>
+		</template>
+		<script type="text/javascript">
+			const app=new Vue({
+				el:'#app',
+				data:{
+					msg:'hhhh',
+					num1:0,
+					num2:1
+				},
+				methods:{
+					num1change(){
+						
+					}
+				}
+				components:{
+					cpn:{
+						template:'#cpn',
+						props:{
+							cnum1:Number,
+							cnum2:Number
+						},
+						methods:{
+							num1Input(e){
+								this.dnum1=e.target.value;
+								this.$emit('num1change',this.dnum1);
+								this.dnum2=this.dnum1*100;
+								this.$emit('num2change',this.dnum2);
+								
+							},
+						}
+					}
+				}
+				
+			})
+		</script>
+	</body>
+</html>

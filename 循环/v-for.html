@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script src="../js/vue.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+		<div id="app">
+			<!-- 遍历数组 -->
+			<!-- 	<h2 v-for="name in names">{{name}}</h2>
+			<h2 v-for="(name,index) in names">{{index}}--{{name}}</h2> -->
+			
+			
+			<!-- 遍历对象 -->
+			<!-- <h2 v-for="tip in tips">{{tip}}</h2> -->
+			<!-- 获取key和value (value,key)-->
+			<!-- <h2 v-for="(tip,key) in tips">{{key}}:{{tip}}</h2> -->
+			
+			<!-- 获取index下标 -->
+			<h2 v-for="(tip,key,index) in tips" :key='tip'>{{index}}-{{key}}:{{tip}}</h2>
+		</div>
+		<script type="text/javascript">
+			let app=new Vue({
+				el:'#app',
+				data:{
+					msg:'hhhhh',
+					names:['jack','peter','hlen','boter'],
+					tips:{
+						name:'cqc',
+						age:'22',
+						height:'170'
+					}
+				}
+			})
+		</script>
+	</body>
+</html>

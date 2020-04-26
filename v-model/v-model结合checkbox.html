@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script src="../js/vue.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+		<!-- 单个复选框 -->
+		<div id="app">
+			<h2>{{sex}}</h2>
+			<label for="s">
+				<input type="checkbox"  id="s"  v-model='sex'/>同意协议
+			
+			</label>
+			
+			<button type="button" :disabled="!sex">dsadsa</button>
+			
+				<input type="checkbox"   value="篮球" v-model="fav"/>篮球
+				<input type="checkbox" value="足球"v-model="fav"/>足球
+				<input type="checkbox"   value="羽毛球"v-model="fav"/>羽毛球
+			<h2>{{fav}}</h2>
+			
+		</div>
+		<script type="text/javascript">
+			let app=new Vue({
+				el:'#app',
+				data:{
+					sex:false,
+					fav:[]
+				}
+				
+				
+			})
+		</script>
+	</body>
+</html>

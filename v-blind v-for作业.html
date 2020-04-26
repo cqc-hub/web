@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<script src="js/vue.js" type="text/javascript" charset="utf-8"></script>
+	<title></title>
+	<style type="text/css">
+		.active{
+			color: red;
+		}
+	</style>
+</head>
+<body>
+	<div id="main">
+		<p v-for="(tip,index) in tips" :class="{active:currentIndex==index}" v-on:click="dk(index)">{{index}}--{{tip}}</p>
+	</div>
+	<script type="text/javascript">
+		var vm=new Vue({
+			el:'#main',
+			data:{
+				tips:['蜘蛛','毒蛇','蟾蜍','黑蝎'],
+				currentIndex:0
+			},
+			methods:{
+				dk:function(index){
+					this.currentIndex=index;
+				}
+			}
+		})
+	</script>
+</body>
+</html>
